@@ -16,9 +16,9 @@ export default function Home() {
 <div><TableSort /></div> 
 <div><FooterLinks /></div>
   </div>
-
-<Button component={Link} href="/test">
+<Link  href="/test">
+<Button>
 Next link button
-</Button>
+</Button></Link>
   );
 }
