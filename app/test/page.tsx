@@ -5,7 +5,6 @@ import {CarouselCard} from '../../components/CarouselCard/CarouselCard';
 import {HeaderTabs} from '../../lib/HeaderTabs/HeaderTabs';
 import {FooterLinks} from '../../lib/FooterLinks/FooterLinks';
 import {TableSort} from '../../lib/TableSort/TableSort';
-import {CarouselCard} from '../components/CarouselCard/CarouselCard';
 import Link from "next/link";
 import { Button } from '@mantine/core';
 
