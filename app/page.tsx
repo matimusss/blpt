@@ -16,9 +16,12 @@ export default function Home() {
 <div><CarouselCard /></div>
 <div><TableSort /></div> 
 <div><FooterLinks /></div>
-  </div>
-   <Link href="/test">ASD </Link>
+  
+  
+<Link href="/test">ASD </Link>
 
+  
+  </div>
 
   );
 }
