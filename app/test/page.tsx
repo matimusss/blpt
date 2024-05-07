@@ -5,13 +5,16 @@ import {CarouselCard} from '../../components/CarouselCard/CarouselCard';
 import {HeaderTabs} from '../../lib/HeaderTabs/HeaderTabs';
 import {FooterLinks} from '../../lib/FooterLinks/FooterLinks';
 import {TableSort} from '../../lib/TableSort/TableSort';
-
+import Link from "next/link";
+import { Button } from '@mantine/core';
 
 export default function Home() {
   return (
    <div>
-<div><HeaderTabs /></div>          
+<div><HeaderTabs /></div>       
+<Button component={Link} href="/">  home link button  </Button>   
 <div><FooterLinks /></div>
+
   </div>
 
 

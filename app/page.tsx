@@ -14,15 +14,12 @@ export default function Home() {
 <div><HeaderTabs /></div>          
 <div><ContactUs /></div>          
 <div><CarouselCard /></div>
+<Button component={Link} href="/test">  Next link button  </Button>
 <div><TableSort /></div> 
 <div><FooterLinks /></div>
   
-  
-<Link href="/test">ASD </Link>
 
-<Button component={Link} href="/test">
-      Next link button
-    </Button>
+
   
   </div>
 
