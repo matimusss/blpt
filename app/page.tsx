@@ -7,10 +7,8 @@ import { Button } from '@mantine/core';
 export default function Home() {
   return (
    <div>           
-<div><ContactUs /></div>          
-
+<ContactUs />       
 <Button component={Link} href="/test">  Next link button  </Button>
-
   </div>
 
   );

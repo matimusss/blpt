@@ -11,7 +11,7 @@ import { Button } from '@mantine/core';
 export default function Home() {
   return (
    <div> 
-    <div><CarouselCard /></div>
+ <CarouselCard />
 <Button component={Link} href="/">  home link button  </Button>   
   </div>
 
