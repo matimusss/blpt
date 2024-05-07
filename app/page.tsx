@@ -16,9 +16,8 @@ export default function Home() {
 <div><TableSort /></div> 
 <div><FooterLinks /></div>
   </div>
-<Link  href="/test">
-<Button>
-Next link button
-</Button></Link>
+    <Button component={Link} href="/hello">
+    Next link button
+  </Button>
   );
 }
