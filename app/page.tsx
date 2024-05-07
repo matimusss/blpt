@@ -20,6 +20,9 @@ export default function Home() {
   
 <Link href="/test">ASD </Link>
 
+<Button component={Link} href="/test">
+      Next link button
+    </Button>
   
   </div>
 
