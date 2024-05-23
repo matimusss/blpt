@@ -1,6 +1,19 @@
-// Return a list of `params` to populate the [slug] dynamic segment
+interface Post {
+  slug: string;
+  name: string;
+  html_code: string; // Assuming this is the correct property name from your API response
+  css_code: string; // Assuming this is the correct property name from your API response
+}
+
+
+
+
+
 export async function generateStaticParams() {
-  const posts = await fetch('https://sonicjs-cf2.pages.dev/v1/pages').then((res) => res.json())
+  const posts: Post[] = await fetch('https://sonicjs-cf2.pages.dev/v1/pages').then((res) => res.json());
+
+
+
  
   return posts.map((post) => ({
     slug: post.slug,
