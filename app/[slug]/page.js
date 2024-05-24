@@ -17,7 +17,7 @@ export async function generateStaticParams() {
 export default async function Page({ params }) {
   const slug = params;
     const response2 = await
-     fetch(`https://sonicjs-cf2.pages.dev/v1/pages?filters[slug][$eq]=${slug}`).then((res) =>
+     fetch(`https://sonicjs-cf2.pages.dev/v1/pages?filters[slug][$eq]=${slug.slug}`).then((res) =>
        res.json());
     const postData = response2.data; // Como la respuesta solo tiene un objeto, no necesitas mapear
 
@@ -26,6 +26,7 @@ export default async function Page({ params }) {
     return (
      <div>       
  asdasdasdasd
+ {response2}
  {postData}
     </div>
   );
