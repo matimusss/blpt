@@ -8,9 +8,10 @@ export async function generateStaticParams() {
 export default async function Page({ params }) {
   const slug = params;
   const response2 = await fetch(`https://sonicjs-cf2.pages.dev/v1/pages?filters[slug][$eq]=${slug.slug}`).then((res) =>    res.json());
-    return (
+// {response2.data[0].html_code} ese funca
+  return (
      <div>       
- {response2.data[0].html_code}
+ <style dangerouslySetInnerHTML={{ __html: response2.data[0].css_code }} />
  <div dangerouslySetInnerHTML={{ __html: response2.data[0].html_code }} />
     </div>
 
