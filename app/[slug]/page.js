@@ -20,6 +20,8 @@ export default async function Page({ params }) {
      fetch(`https://sonicjs-cf2.pages.dev/v1/pages?filters[slug][$eq]=${slug}`).then((res) =>
        res.json());
     const postData = response2.data; // Como la respuesta solo tiene un objeto, no necesitas mapear
+  console.log(postData);
+  console.log(slug);
   
     return (
      <div>       
