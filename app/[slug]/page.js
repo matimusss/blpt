@@ -5,27 +5,16 @@ export async function generateStaticParams() {
     }))
 }
 
-
-
-
-
-
-
-
-
-
 export default async function Page({ params }) {
   const slug = params;
-
-    const response2 = await fetch(`https://sonicjs-cf2.pages.dev/v1/pages?filters[slug][$eq]=${slug.slug}`).then((res) =>    res.json());
- 
-  console.log(response2.data[0].name);
-  
-  
+  const response2 = await fetch(`https://sonicjs-cf2.pages.dev/v1/pages?filters[slug][$eq]=${slug.slug}`).then((res) =>    res.json());
     return (
      <div>       
-  
- {response2.data[0].slug}
+ {response2.data[0].html_code}
+ <div dangerouslySetInnerHTML={{ __html: response2.data[0].html_code }} />
     </div>
+
+
+
   );
 }
