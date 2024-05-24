@@ -24,7 +24,7 @@ export default async function Page({ params }) {
     return (
      <div>       
           
-   {params}
+   {slug}
           
    {postData.name}
     </div>
