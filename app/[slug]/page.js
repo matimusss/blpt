@@ -15,7 +15,6 @@ export async function generateStaticParams() {
 
 
   export default function Page({ params }) {
-    const { slug } = params.slug;
     return (
       <div>           
         probando generateStaticParams...
