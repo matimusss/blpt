@@ -23,10 +23,7 @@ export default async function Page({ params }) {
   
     return (
      <div>       
-          
-   {slug}
-          
-   {postData.name}
+ asdasdasdasd
     </div>
   );
 }
