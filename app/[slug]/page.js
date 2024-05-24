@@ -18,11 +18,12 @@ export async function generateStaticParams() {
 
   export default function Page({ params }) {
     const { slug } = params.slug;
-  
+    const { name } = params.name;
+    
     return (
       <div>           
         probando generateStaticParams...
-        slug es : {slug}
+        NAME es : {name}
       
       </div>
     );
