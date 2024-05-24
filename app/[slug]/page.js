@@ -25,10 +25,8 @@ export default async function Page({ params }) {
   
     return (
      <div>       
- a
- {prueba}
- {postData.slug}
- {postData.css_code}
+ 
+ {response2.data.slug}
     </div>
   );
 }
