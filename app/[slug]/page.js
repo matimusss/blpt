@@ -15,7 +15,7 @@ export async function generateStaticParams() {
 
 
 export default async function Page({ params }) {
-  const slug = {params};
+  const slug = params;
     const response2 = await
      fetch(`https://sonicjs-cf2.pages.dev/v1/pages?filters[slug][$eq]=${slug}`).then((res) =>
        res.json());
