@@ -24,9 +24,8 @@ export default async function Page({ params }) {
   
     return (
      <div>       
-     {postData}
- 
- {response2.data.slug}
+  
+ {response2.data[0].slug}
     </div>
   );
 }
