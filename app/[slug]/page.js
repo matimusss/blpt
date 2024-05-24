@@ -1,4 +1,4 @@
-export async function fetching() {
+async function fetching() {
   const response = await fetch('https://sonicjs-cf2.pages.dev/v1/pages').then((res) => res.json());
   return response.data.map((post) => ({
     slug: post.slug,
