@@ -14,7 +14,7 @@ export async function generateStaticParams() {
     return (
       <div>           
         probando generateStaticParams...
-        NAME es : {slug}
+        NAME es : {params.slug}
       
       </div>
     );
