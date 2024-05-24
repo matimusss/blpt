@@ -18,13 +18,15 @@ export default async function Page({ params }) {
   const slugs = {params}
   async function fetching2() {
     const response2 = await fetch(`https://sonicjs-cf2.pages.dev/v1/pages?filters[slug][$eq]=${slugs}`).then((res) => res.json());
-    return response2.data.map((post2) => ({
-      slug: post2.slug,
-      name: post2.name,
-      css: post2.css_code,
-      html: post2.html_code,
-    }));
+    const postData = response2.data; // Como la respuesta solo tiene un objeto, no necesitas mapear
+    return {
+      slug: postData.slug,
+      name: postData.name,
+      css: postData.css_code,
+      html: postData.html_code,
+    };
   }
+  
     const respuesta2 = await fetching2();
     console.log("RESPUESTA 2 " + respuesta2 + ".");
     return (
