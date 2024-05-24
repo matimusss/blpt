@@ -24,6 +24,7 @@ export default async function Page({ params }) {
     return (
      <div>       
  asdasdasdasd
+ {postData}
     </div>
   );
 }
