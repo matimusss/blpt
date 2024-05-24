@@ -25,8 +25,7 @@ export default async function Page({ params }) {
   
     return (
      <div>       
- asdasdasdasd
- {response2}
+ a
  {postData}
     </div>
   );
