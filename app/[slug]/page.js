@@ -4,32 +4,20 @@ async function fetching() {
     slug: post.slug,
     name: post.name,
   }));
-}
-
-export async function generateStaticParams() {
+  
   const respuesta = await fetching();
   const allSlugs = respuesta.map((rta) => rta.slug);
   const allNames = respuesta.map((rta) => rta.name);
+}
+
+export async function generateStaticParams() {
   return allSlugs;
 }
 
 export default function Page({ params }) {
-  const [slugs, setSlugs] = useState([]);
-
-  useEffect(() => {
-    generateStaticParams().then((slugs) => {
-      setSlugs(slugs);
-    });
-  }, []);
-
   return (
     <div>           
-      probando generateStaticParams...
-      {slugs.map((slug, index) => (
-        <div key={index}>
-          Slug {index}: {slug}
-        </div>
-      ))}
+  
     </div>
   );
 }
