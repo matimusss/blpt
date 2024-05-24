@@ -1,7 +1,5 @@
 export async function generateStaticParams() {
- 
     const posts = await fetch('https://sonicjs-cf2.pages.dev/v1/pages').then((res) => res.json())
- 
     return posts.data.map((post) => ({
       slug: post.slug,
     }))
@@ -29,10 +27,10 @@ export default async function Page({ params }) {
     const respuesta2 = await fetching2();
     return (
     <div>           
-   {response2.slug}
-   {response2.name}
-   {response2.html}
-   {response2.css}
+   {respuesta2.slug}
+   {respuesta2.name}
+   {respuesta2.html}
+   {respuesta2.css}
     </div>
   );
 }
