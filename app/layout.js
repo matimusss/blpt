@@ -11,7 +11,9 @@ export default  async function Layout({ children }) {
    console.log(footerData);
    console.log(headerData.data);
    console.log(footerData.data);
-   
+
+   //8/
+   ///as/da/sd/asd/asd
      return (
     <html lang="en">
     <head>
