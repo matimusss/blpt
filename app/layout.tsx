@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
     <head>
-    <script src="https://cdn.tailwindcss.com" defer />
+    <Script src="https://cdn.tailwindcss.com" strategy="beforeInteractive" /> 
 
       <ColorSchemeScript />
     </head>
