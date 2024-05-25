@@ -1,9 +1,9 @@
 import Script from 'next/script'
 
 export default  async function Layout({ children }) {
-        const headerRes = await fetch(`https://sonicjs-cf2.pages.dev/v1/assets?filters[name][$eq]=header`);
-     const footerRes = await fetch(`https://sonicjs-cf2.pages.dev/v1/assets?filters[name][$eq]=footer`);
-   
+    const timestamp = new Date().getTime();
+    const headerRes = await fetch(`https://sonicjs-cf2.pages.dev/v1/assets?filters[name][$eq]=header&timestamp=${timestamp}`);
+    const footerRes = await fetch(`https://sonicjs-cf2.pages.dev/v1/assets?filters[name][$eq]=footer&timestamp=${timestamp}`);
      const headerData = await headerRes.json();
      const footerData = await footerRes.json();
 
