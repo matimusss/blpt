@@ -7,25 +7,6 @@ export default  async function Layout({ children }) {
      const headerData = await headerRes.json();
      const footerData = await footerRes.json();
 
-     console.log(headerData);
-   console.log(footerData);
-   console.log(headerData.data);
-   console.log(footerData.data);
-   //8/
-   ///as/da/sd/asd/asd   //8/
-   ///as/da/sd/asd/asd   //8/
-   ///as/da/sd/asd/asd
-   //8/   ///as/da/sd/asd/asd   //8/
-   ///as/da/sd/asd/asd   //8/
-   ///as/da/sd/asd/asd
-   //8/   ///as/da/sd/asd/asd   //8/
-   ///as/da/sd/asd/asd   //8/
-   ///as/da/sd/asd/asd
-   //8/   ///as/da/sd/asd/asd   //8/
-   ///as/da/sd/asd/asd   //8/
-   ///as/da/sd/asd/asd
-   //8/
-   ///as/da/sd/asd/asd
      return (
     <html lang="en">
     <head>
