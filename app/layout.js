@@ -1,14 +1,14 @@
 "use client"
 import Script from 'next/script'
-export default function RootLayout({ children }) {
-  const fetchData = async () => {
+export default async function RootLayout({ children }) {
+ 
     const headerRes = await fetch(`https://sonicjs-cf2.pages.dev/v1/assets?filters[name][$eq]=header`);
     const headerData = await headerRes.json();
     // Aquí puedes hacer algo con headerData si es necesario
     const footerRes = await fetch(`https://sonicjs-cf2.pages.dev/v1/assets?filters[name][$eq]=footer`);
     const footerData = await footerRes.json();
     // Aquí puedes hacer algo con footerData si es necesario
-  };
+
   return (
     <html lang="en">
     <head>
