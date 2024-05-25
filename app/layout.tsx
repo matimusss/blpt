@@ -18,6 +18,7 @@ import {FooterLinks} from '../lib/FooterLinks/FooterLinks';
 //  title: "Prueba BOILERPLATE cf",
 //  description: "satoriDev",
 //};
+import Script from 'next/script'
 
 export default function RootLayout({
   children,
@@ -27,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
     <head>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <Script src="https://cdn.tailwindcss.com"></Script>
       <ColorSchemeScript />
     </head>
     <body >
