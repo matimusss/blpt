@@ -1,14 +1,14 @@
 import Script from 'next/script'
 
-export default  async function RootLayout({ children }) {
- 
-    
+export default  async function Layout({ children }) {
         const headerRes = await fetch(`https://sonicjs-cf2.pages.dev/v1/assets?filters[name][$eq]=header`);
-
-      const footerRes = await fetch(`https://sonicjs-cf2.pages.dev/v1/assets?filters[name][$eq]=footer`);
- 
-
-  return (
+     const footerRes = await fetch(`https://sonicjs-cf2.pages.dev/v1/assets?filters[name][$eq]=footer`);
+   console.log(headerRes);
+   console.log(footerRes);
+   console.log(headerRes.data);
+   console.log(footerRes.data);
+   
+     return (
     <html lang="en">
     <head>
     <Script src="https://cdn.tailwindcss.com" strategy="beforeInteractive" /> 
