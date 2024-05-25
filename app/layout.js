@@ -3,10 +3,14 @@ import Script from 'next/script'
 export default  async function Layout({ children }) {
         const headerRes = await fetch(`https://sonicjs-cf2.pages.dev/v1/assets?filters[name][$eq]=header`);
      const footerRes = await fetch(`https://sonicjs-cf2.pages.dev/v1/assets?filters[name][$eq]=footer`);
-   console.log(headerRes);
-   console.log(footerRes);
-   console.log(headerRes.data);
-   console.log(footerRes.data);
+   
+     const headerData = await headerRes.json();
+     const footerData = await footerRes.json();
+
+     console.log(headerData);
+   console.log(footerData);
+   console.log(headerData.data);
+   console.log(footerData.data);
    
      return (
     <html lang="en">
@@ -15,7 +19,7 @@ export default  async function Layout({ children }) {
     </head>
     <body >
 <div>  
-<div dangerouslySetInnerHTML={{ __html: headerRes.data[0].html_code }} />
+<div dangerouslySetInnerHTML={{ __html: headerData.data[0].html_code }} />
 </div>   
 
       <div>
@@ -24,7 +28,7 @@ export default  async function Layout({ children }) {
     
       <div>   
 
-<div dangerouslySetInnerHTML={{ __html: footerRes.data[0].html_code }} />
+<div dangerouslySetInnerHTML={{ __html: footerData.data[0].html_code }} />
 </div>
     </body>  </html>
   );
