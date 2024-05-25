@@ -28,7 +28,8 @@ export default function RootLayout({
   return (
     <html lang="en">
     <head>
-    <Script src="https://cdn.tailwindcss.com"></Script>
+    <script src="https://cdn.tailwindcss.com" async />
+
       <ColorSchemeScript />
     </head>
     <body >
