@@ -7,10 +7,12 @@
 export default async function Page({ params }) {
   const slug = params;
   const response2 = await fetch(`https://sonicjs-cf2.pages.dev/v1/pages?filters[slug][$eq]=${slug.slug}`).then((res) =>    res.json());
+
+// <style dangerouslySetInnerHTML={{ __html: response2.data[0].css_code }} />
 // {response2.data[0].html_code} ese funca
   return (
      <div>       
- <style dangerouslySetInnerHTML={{ __html: response2.data[0].css_code }} />
+
  <div dangerouslySetInnerHTML={{ __html: response2.data[0].html_code }} />
     </div>
   );
