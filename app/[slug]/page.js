@@ -9,10 +9,7 @@
   }
 export default async function Page({ params }) {
   const slug = params;
-  const pageRes = await fetch(`https://sonicjs-cf2.pages.dev/v1/pages?filters[slug][$eq]=${slug.slug}`).then((res) =>    res.json(),
-  {
-    next: { revalidate: 0 } 
-  });
+  const pageRes = await fetch(`https://sonicjs-cf2.pages.dev/v1/pages?filters[slug][$eq]=${slug.slug}`).then((res) =>    res.json());
   const pageData = await pageRes.json();
 
 // <style dangerouslySetInnerHTML={{ __html: response2.data[0].css_code }} />
