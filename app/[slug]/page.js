@@ -18,7 +18,7 @@ export default async function Page({ params }) {
 
   return (
      <div>       
-// <div dangerouslySetInnerHTML={{ __html: pageRes.data[0].html_code }} />
+<div dangerouslySetInnerHTML={{ __html: pageRes.data[0].html_code }} />
     </div>
   );
 }
