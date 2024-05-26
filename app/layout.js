@@ -1,4 +1,3 @@
-export const dynamic = 'force-dynamic';
 import Script from 'next/script'
 
 export default  async function Layout({ children }) {
@@ -25,7 +24,7 @@ export default  async function Layout({ children }) {
      const footerData = await footerRes.json();
 
 
-     
+
      return (
     <html lang="en">
     <head>
