@@ -1,16 +1,18 @@
+
 import Script from 'next/script'
+import { unstable_noStore as noStore } from 'next/cache';
 
-export default  async function Layout({ children }) {
-    
-
-
+export default  async function Layout({ children }) {    
   const timestamp = new Date().getTime();
-
+ 
+ 
+  noStore();
     const headerRes = await fetch(`https://sonicjs-cf2.pages.dev/v1/assets?filters[name][$eq]=header&timestamp=${timestamp}`,
     {
 			next: { revalidate: 0 } 
     });
-
+    
+    noStore();
     const footerRes = await fetch(`https://sonicjs-cf2.pages.dev/v1/assets?filters[name][$eq]=footer&timestamp=${timestamp}`,
     {
 			next: { revalidate: 0 } 
