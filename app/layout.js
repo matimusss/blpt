@@ -5,19 +5,11 @@ export default  async function Layout({ children }) {
 
  
   const headerRes = await fetch(`https://sonicjs-cf2.pages.dev/v1/assets?filters[name][$eq]=header}`, {
-    headers: {
-      'CDN-Cache-Control': 'no-cache', // Esto evita que Cloudflare almacene en caché la respuesta
-      // O puedes ajustar la directiva según tus necesidades específicas
-    },
-    next: { revalidate: 0 } 
+   
   });
   
   const footerRes = await fetch(`https://sonicjs-cf2.pages.dev/v1/assets?filters[name][$eq]=footer`, {
-    headers: {
-      'CDN-Cache-Control': 'no-cache', // Esto evita que Cloudflare almacene en caché la respuesta
-      // O puedes ajustar la directiva según tus necesidades específicas
-    },
-    next: { revalidate: 0 } 
+
   });
   
 
