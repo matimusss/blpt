@@ -9,7 +9,7 @@ export default  async function Layout({ children }) {
 			next: { revalidate: 0 } 
     });
 
-    noStore();
+
     const footerRes = await fetch(`https://sonicjs-cf2.pages.dev/v1/assets?filters[name][$eq]=footer&timestamp=${timestamp}`,
     {
 			next: { revalidate: 0 } 
