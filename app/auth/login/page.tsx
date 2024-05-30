@@ -70,8 +70,8 @@ export default function Page() {
     if (storedBearerToken) {
       //sacarle comillas al bearer...
       const tokenWithoutQuotes = storedBearerToken.replace(/"/g, '').replace(/'/g, '');
- const token = "bearer "+tokenWithoutQuotes;
 
+ const token = `Bearer ${tokenWithoutQuotes}`;
       console.log( token);
       // Configurar las opciones de la solicitud Fetch
       const fetchOptions = {
