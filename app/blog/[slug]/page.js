@@ -17,7 +17,7 @@ export default async function Page({ params }) {
 
   const slug = params;
  // const blogData = await 
- fetch(`https://sonicjs-cf2.pages.dev/v1/posts?filters[slug][$eq]=${slug.slug}`).then((res) =>    res.json());
+ const blogData = await fetch(`https://sonicjs-cf2.pages.dev/v1/posts?filters[slug][$eq]=${slug.slug}`).then((res) =>    res.json());
 
   return (
      <div>       
