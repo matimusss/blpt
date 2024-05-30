@@ -43,14 +43,12 @@ export default function Page() {
     }
   };
 
-  // Llama a la función sendFetchRequest() si el código está presente en la URL
-  useEffect(() => {
-    sendFetchRequest();
-  }, []); // Ejecuta esta efecto solo una vez al cargar la página
+
 
   return (
     <div>
       <button onClick={handleGitHubLogin}>Login with GitHub</button>
+      <button onClick={sendFetchRequest}>Hacer fetch a Backend</button>
     </div>
   );
 }
