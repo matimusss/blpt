@@ -1,4 +1,3 @@
-
 export async function generateStaticParams() {
  // var Slugify = require('slugifyjs').fromLocale('en');
   //slug: Slugify.parse(post.title),
@@ -7,9 +6,6 @@ export async function generateStaticParams() {
       slug: post.slug,
     }))
 }
-
-
-
 
 
 
