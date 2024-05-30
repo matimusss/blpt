@@ -69,12 +69,14 @@ export default function Page() {
   console.log( `Bearer ${storedBearerToken}`);
     // Verificar si el token está presente
     if (storedBearerToken) {
+      const tokenWithoutQuotes = storedBearerToken.replace(/"/g, '').replace(/'/g, '');
+
       // Configurar las opciones de la solicitud Fetch
       const fetchOptions = {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `bearer ${storedBearerToken}` // Agregar el token al encabezado de autorización
+          'Authorization': `bearer ${tokenWithoutQuotes}` // Agregar el token al encabezado de autorización
         }
       };
   
