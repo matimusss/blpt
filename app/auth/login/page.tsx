@@ -1,7 +1,4 @@
 "use client";
-
-import { useState, useEffect } from 'react';
-
 export default function Page() {
   const clientId: string = "Ov23li3kJgisbMmtA44m";
   const state: string = "asdasd123123asdasd123";
@@ -12,11 +9,14 @@ export default function Page() {
     window.location.assign(link);
   };
 
+  const clearCSRFToken = () => {
+    localStorage.removeItem("latestCSRFToken");
+  };
+  
   // Función para enviar una solicitud Fetch con el código
   const sendFetchRequest = () => {
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get('code');
-
     if (code) {
       const fetchOptions = {
         method: 'POST',
@@ -49,6 +49,8 @@ export default function Page() {
     <div>
       <button onClick={handleGitHubLogin}>Login with GitHub</button>
       <button onClick={sendFetchRequest}>Hacer fetch a Backend</button>
+      <button onClick={clearCSRFToken}>clear cookie</button>
+
     </div>
   );
 }
