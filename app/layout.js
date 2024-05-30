@@ -11,8 +11,6 @@ export default  async function Layout({ children }) {
 
    
 
-
-
      const headerData = await headerRes.json();
      const footerData = await footerRes.json();
 
