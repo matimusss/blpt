@@ -65,22 +65,20 @@ export default function Page() {
   const logout = () => {
     // Obtener el token de localStorage
     const storedBearerToken = localStorage.getItem("bearer");
-  console.log(storedBearerToken);
-  console.log( `Bearer ${storedBearerToken}`);
+
     // Verificar si el token está presente
     if (storedBearerToken) {
       //sacarle comillas al bearer...
       const tokenWithoutQuotes = storedBearerToken.replace(/"/g, '').replace(/'/g, '');
-      console.log( `Bearer ${tokenWithoutQuotes}`);
- const aver = "bearer"+tokenWithoutQuotes;
+ const token = "bearer "+tokenWithoutQuotes;
 
-      console.log( "aver" + aver);
+      console.log( token);
       // Configurar las opciones de la solicitud Fetch
       const fetchOptions = {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `bearer ${tokenWithoutQuotes}` // Agregar el token al encabezado de autorización
+          'Authorization': token // Agregar el token al encabezado de autorización
         }
       };
   
