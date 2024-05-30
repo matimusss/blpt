@@ -7,7 +7,7 @@ export default function Page() {
     localStorage.setItem("latestCSRFToken", state);
     const link: string = `https://github.com/login/oauth/authorize?client_id=${clientId}&response_type=code&state=${state}`;
     window.location.assign(link);
-  };
+   };
 
   const clearCSRFToken = () => {
     localStorage.removeItem("latestCSRFToken");
@@ -36,6 +36,10 @@ export default function Page() {
         .then(data => {
           // Aquí puedes manejar la respuesta del servidor si es necesario
           console.log(data);
+
+
+          localStorage.setItem("bearer", data);
+
         })
         .catch(error => {
           console.error('There was a problem with the fetch operation:', error);
