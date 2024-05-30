@@ -12,6 +12,20 @@ export default function Page() {
   const clearCSRFToken = () => {
     localStorage.removeItem("latestCSRFToken");
   };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   // Función para enviar una solicitud Fetch con el código
   const sendFetchRequest = () => {
@@ -38,7 +52,7 @@ export default function Page() {
           console.log(data);
 
 
-          localStorage.setItem("bearer", JSON.stringify(data));
+          localStorage.setItem("bearer", JSON.stringify(data.bearer));
 
         })
         .catch(error => {
@@ -48,13 +62,46 @@ export default function Page() {
   };
 
 
+  const logout = () => {
+    // Obtener el token de localStorage
+    const storedBearerToken = localStorage.getItem("bearer");
+    // Verificar si el token está presente
+    if (storedBearerToken) {
+      // Configurar las opciones de la solicitud Fetch
+      const fetchOptions = {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${storedBearerToken}` // Agregar el token al encabezado de autorización
+        }
+      };
+  
+      // Realizar la solicitud Fetch
+      fetch('https://sonicjs-cf2.pages.dev/v1/auth/logout', fetchOptions)
+        .then(response => {
+          // Manejar la respuesta de la solicitud
+        })
+        .catch(error => {
+          // Manejar errores de la solicitud
+        });
+    } else {
+      console.log("No bearer token found in localStorage");
+    }
+  };
 
-  return (
-    <div>
-      <button onClick={handleGitHubLogin}>Login with GitHub</button>
-      <button onClick={sendFetchRequest}>Hacer fetch a Backend</button>
-      <button onClick={clearCSRFToken}>clear cookie</button>
+  
+return (
+  <div>
+    <br/>
+    <button onClick={handleGitHubLogin}>Login with GitHub</button>
+    <br/>
+    <button onClick={sendFetchRequest}>Hacer fetch a Backend</button>
+    <br/>
+    <button onClick={clearCSRFToken}>clear cookie</button>
+    <br/>
+    <button onClick={logout}>logout</button>
+    <br/>
+  </div>
+);    
+    };
 
-    </div>
-  );
-}
