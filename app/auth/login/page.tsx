@@ -13,19 +13,6 @@ export default function Page() {
     localStorage.removeItem("latestCSRFToken");
   };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
   
   // Función para enviar una solicitud Fetch con el código
   const sendFetchRequest = () => {
