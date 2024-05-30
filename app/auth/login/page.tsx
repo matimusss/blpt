@@ -38,7 +38,7 @@ export default function Page() {
           console.log(data);
 
 
-          localStorage.setItem("bearer", data);
+          localStorage.setItem("bearer", JSON.stringify(data));
 
         })
         .catch(error => {
