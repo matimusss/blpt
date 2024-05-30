@@ -69,8 +69,12 @@ export default function Page() {
   console.log( `Bearer ${storedBearerToken}`);
     // Verificar si el token está presente
     if (storedBearerToken) {
+      //sacarle comillas al bearer...
       const tokenWithoutQuotes = storedBearerToken.replace(/"/g, '').replace(/'/g, '');
+      console.log( `Bearer ${tokenWithoutQuotes}`);
+ const aver = "bearer"+tokenWithoutQuotes;
 
+      console.log( "aver" + aver);
       // Configurar las opciones de la solicitud Fetch
       const fetchOptions = {
         method: 'GET',
