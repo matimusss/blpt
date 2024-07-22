@@ -1,5 +1,4 @@
-"use client"
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 
 // Componente EmblaCarousel
@@ -38,7 +37,6 @@ function replacePlaceholders(htmlString, data) {
 // Componente para la página del producto
 export default function Page({ params }) {
   const slug = params.slug;
-  const containerRef = useRef(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -54,16 +52,18 @@ export default function Page({ params }) {
       // Reemplaza los marcadores de posición con los valores del producto
       const htmlContent = replacePlaceholders(htmlTemplate, blogData);
 
-      // Set the innerHTML of the containerRef
-      if (containerRef.current) {
-        containerRef.current.innerHTML = htmlContent;
+      // Establecer el contenido HTML en el contenedor
+      const container = document.getElementById('page-container');
+      if (container) {
+        container.innerHTML = htmlContent;
 
-        // Replace the marker with the EmblaCarousel component
-        const imagesComponentDiv = containerRef.current.querySelector('#images_component');
+        // Reemplazar el marcador con el componente EmblaCarousel
+        const imagesComponentDiv = container.querySelector('#images_component');
         if (imagesComponentDiv) {
           const carouselElement = document.createElement('div');
           carouselElement.id = 'carousel-container';
           imagesComponentDiv.replaceWith(carouselElement);
+          ReactDOM.render(<EmblaCarousel />, carouselElement);
         }
       }
     }
@@ -71,16 +71,7 @@ export default function Page({ params }) {
     fetchData();
   }, [slug]);
 
-  useEffect(() => {
-    const imagesComponentDiv = document.getElementById('carousel-container');
-    if (imagesComponentDiv) {
-      imagesComponentDiv.innerHTML = ''; // Clear the placeholder div
-      const carousel = <EmblaCarousel />;
-      imagesComponentDiv.appendChild(React.createElement(carousel));
-    }
-  }, []);
-
   return (
-    <div ref={containerRef} />
+    <div id="page-container" />
   );
 }
