@@ -21,8 +21,9 @@ export default async function Page({ params }) {
 
   return (
      <div>       
-   <div dangerouslySetInnerHTML={{ __html: blogData.data[0].product_name }} />
-  <div dangerouslySetInnerHTML={{ __html: blogData.data[0].product_description }} />
+   <div dangerouslySetInnerHTML={{ __html: blogData[0].product_name }} />
+
+  <div dangerouslySetInnerHTML={{ __html: blogData[0].product_description }} />
     </div>
   );
 }
