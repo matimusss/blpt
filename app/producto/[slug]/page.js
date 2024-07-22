@@ -5,7 +5,7 @@ export async function generateStaticParams() {
   //slug: Slugify.parse(post.title),
   
   const posts = await fetch('https://sonicjs-cf2.pages.dev/v1/product-full-details').then((res) => res.json())
-    return posts.data.map((post) => ({ 
+    return posts.map((post) => ({ 
       slug: post.slug,
     }))
 }
