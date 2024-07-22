@@ -26,13 +26,8 @@ export default async function Page({ params }) {
   
   
   const productRes = await fetch(`https://sonicjs-cf2.pages.dev/v1/nc/assets?filters[name][$eq]=product`);
-  const productData = await productRes.json();
-
-
-
-  
-  
-  
+  const productData = await productRes.json();  
+  console.log(productData);
   
   
   
@@ -45,9 +40,9 @@ export default async function Page({ params }) {
       <h1>{{product_name}}</h1>
       <p><strong>Descripción:</strong> {{product_description}}</p>
       <p><strong>SKU:</strong> {{sku}}</p>
-      <p><strong>Precio de Venta:</strong> ${{sale_price}}</p>
-      <p><strong>Precio Comparativo:</strong> ${{compare_price}}</p>
-      <p><strong>Precio de Compra:</strong> ${{buying_price}}</p>
+      <p><strong>Precio de Venta:</strong> {{sale_price}}</p>
+      <p><strong>Precio Comparativo:</strong> {{compare_price}}</p>
+      <p><strong>Precio de Compra:</strong> {{buying_price}}</p>
       <p><strong>Cantidad:</strong> {{quantity}}</p>
       <p><strong>Tipo de Producto:</strong> {{product_type}}</p>
     </div>
