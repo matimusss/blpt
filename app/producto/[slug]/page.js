@@ -2,6 +2,8 @@ import React from 'react';
 
 // Función para obtener los parámetros estáticos
 export async function generateStaticParams() {
+
+
   const posts = await fetch('https://sonicjs-cf2.pages.dev/v1/product-min-details').then((res) => res.json());
   return posts.map((post) => ({ 
     slug: post.slug,
@@ -20,6 +22,22 @@ export default async function Page({ params }) {
   const slug = params.slug;
   const blogData = await fetch(`https://sonicjs-cf2.pages.dev/v1/getProductBySlug/${slug}`).then((res) => res.json());
 
+  
+  
+  
+  const productRes = await fetch(`https://sonicjs-cf2.pages.dev/v1/nc/assets?filters[name][$eq]=product`);
+  const productData = await productRes.json();
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
   // HTML de ejemplo con marcadores de posición
   const htmlTemplate = `
     <div>
@@ -35,7 +53,7 @@ export default async function Page({ params }) {
   `;
 
   // Reemplaza los marcadores de posición con los valores del producto
-  const htmlContent = replacePlaceholders(htmlTemplate, blogData);
+  const htmlContent = replacePlaceholders(productData, blogData);
 
   return (
     <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
