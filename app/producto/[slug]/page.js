@@ -10,7 +10,7 @@ export async function generateStaticParams() {
     }))
 }
 
-
+//asdasd
 
 export default async function Page({ params }) {
 
