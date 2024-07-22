@@ -41,6 +41,7 @@ export default async function Page({ params }) {
   // HTML de ejemplo con marcadores de posición
   const htmlTemplate = `
     <div>
+    DESDE HTMLTEMPLATE
       <h1>{{product_name}}</h1>
       <p><strong>Descripción:</strong> {{product_description}}</p>
       <p><strong>SKU:</strong> {{sku}}</p>
@@ -53,7 +54,7 @@ export default async function Page({ params }) {
   `;
 
   // Reemplaza los marcadores de posición con los valores del producto
-  const htmlContent = replacePlaceholders(productData, blogData);
+  const htmlContent = replacePlaceholders(htmlTemplate, blogData);
 
   return (
     <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
