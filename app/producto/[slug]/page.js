@@ -1,5 +1,4 @@
-"use client"
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 
 // Componente EmblaCarousel
@@ -38,7 +37,6 @@ function replacePlaceholders(htmlString, data) {
 // Componente para la página del producto
 export default function Page({ params }) {
   const slug = params.slug;
-  const [htmlContent, setHtmlContent] = useState('');
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -54,22 +52,34 @@ export default function Page({ params }) {
 
       // Reemplaza los marcadores de posición con los valores del producto
       const htmlContent = replacePlaceholders(htmlTemplate, blogData);
-      setHtmlContent(htmlContent);
+
+      // Set the innerHTML of the containerRef
+      if (containerRef.current) {
+        containerRef.current.innerHTML = htmlContent;
+
+        // Replace the marker with the EmblaCarousel component
+        const imagesComponentDiv = containerRef.current.querySelector('#images_component');
+        if (imagesComponentDiv) {
+          const carouselElement = document.createElement('div');
+          carouselElement.id = 'carousel-container';
+          imagesComponentDiv.replaceWith(carouselElement);
+        }
+      }
     }
 
     fetchData();
   }, [slug]);
 
   useEffect(() => {
-    if (containerRef.current) {
-      const imagesComponentDiv = containerRef.current.querySelector('#images_component');
-      if (imagesComponentDiv) {
-        imagesComponentDiv.replaceWith(<EmblaCarousel />);
-      }
+    const imagesComponentDiv = document.getElementById('carousel-container');
+    if (imagesComponentDiv) {
+      imagesComponentDiv.innerHTML = ''; // Clear the placeholder div
+      const carousel = <EmblaCarousel />;
+      imagesComponentDiv.appendChild(React.createElement(carousel));
     }
-  }, [htmlContent]);
+  }, []);
 
   return (
-    <div ref={containerRef} dangerouslySetInnerHTML={{ __html: htmlContent }} />
+    <div ref={containerRef} />
   );
 }
