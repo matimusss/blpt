@@ -20,7 +20,7 @@ export default async function Page({ params }) {
  const blogData = await fetch(`https://sonicjs-cf2.pages.dev/v1/getProductBySlug/${slug.slug}`).then((res) =>    res.json());
 
   return (
-     <div>       W
+     <div>       
    <div dangerouslySetInnerHTML={{ __html: blogData[0].product_name }} />
 
   <div dangerouslySetInnerHTML={{ __html: blogData[0].product_description }} />
