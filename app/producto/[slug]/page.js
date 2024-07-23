@@ -1,6 +1,5 @@
 import React from 'react';
-import EmblaCarousel from 'embla-carousel'
-
+import Carousel from './carousel'
 
 // Función para obtener los parámetros estáticos
 export async function generateStaticParams() {
@@ -39,7 +38,7 @@ export default async function Page({ params }) {
         <div class="flex flex-col md:flex-row -mx-4">
             <div class="md:flex-1 px-4">
                 <div class="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
-                    <img class="w-full h-full object-cover" src="https://cdn.pixabay.com/photo/2020/05/22/17/53/mockup-5206355_960_720.jpg" alt="Product Image" />
+                <Carousel />
                 </div>
                 <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
             </div>
