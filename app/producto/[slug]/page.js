@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React from "react";
 import Carousel from './carousel.js';
 
 // Función para obtener los parámetros estáticos
