@@ -1,4 +1,21 @@
 import React from 'react';
+import EmblaCarousel from 'embla-carousel-react';
+
+// Componente EmblaCarousel
+export function EmblaCarouselComponent() {
+  const [emblaRef] = useEmblaCarousel();
+
+  return (
+    <div className="embla" ref={emblaRef}>
+      <div className="embla__container">
+        <div className="embla__slide">Slide 1</div>
+        <div className="embla__slide">Slide 2</div>
+        <div className="embla__slide">Slide 3</div>
+      </div>
+    </div>
+  );
+}
+
 // Función para obtener los parámetros estáticos
 export async function generateStaticParams() {
   const posts = await fetch('https://sonicjs-cf2.pages.dev/v1/product-min-details').then((res) => res.json());
@@ -8,17 +25,15 @@ export async function generateStaticParams() {
 }
 
 // Función para reemplazar los marcadores de posición en el HTML
-function replacePlaceholders(htmlString, data) {
- 
- 
- 
+function replacePlaceholders(htmlString, data) { 
   return htmlString.replace(/{{(.*?)}}/g, (_, key) => {
-    return data[key.trim()] || ''; // Reemplaza los marcadores de posición con los valores del objeto de datos
+    const trimmedKey = key.trim();
+    if (trimmedKey === 'images_component') {
+      return `<EmblaCarouselComponent />`;
+    }
+    return data[trimmedKey] || ''; // Reemplaza otros marcadores de posición con los valores del objeto de datos
   });
 }
-
-
-
 
 // Componente para la página del producto
 export default async function Page({ params }) {
@@ -37,8 +52,12 @@ export default async function Page({ params }) {
   // Reemplaza los marcadores de posición con los valores del producto
   const htmlContent = replacePlaceholders(htmlTemplate, blogData);
 
+  // Convertir el HTML en JSX
+  const jsxContent = htmlContent.replace(/<EmblaCarouselComponent \/>/g, `<EmblaCarouselComponent />`);
   
   return (
-    <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
+    <div>
+      {jsxContent}
+    </div>
   );
 }
