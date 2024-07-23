@@ -2,7 +2,7 @@ import React from 'react';
 import EmblaCarousel from 'embla-carousel-react';
 
 // Componente EmblaCarousel
-export function EmblaCarouselComponent() {
+function EmblaCarouselComponent() {
   const [emblaRef] = useEmblaCarousel();
 
   return (
