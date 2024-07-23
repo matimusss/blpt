@@ -19,7 +19,7 @@ export default  async function Layout({ children }) {
      return (
     <html lang="en">
     <head>
-    <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
+    <Script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js" />
 
     <Script src="https://cdn.tailwindcss.com" strategy="beforeInteractive" /> 
     </head>
