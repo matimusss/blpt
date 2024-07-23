@@ -1,7 +1,8 @@
 import React from 'react';
-import Carousel from './carousel'
-import Script from 'next/script'
+import useEmblaCarousel from 'embla-carousel-react'
+
 // Función para obtener los parámetros estáticos
+
 export async function generateStaticParams() {
   const posts = await fetch('https://sonicjs-cf2.pages.dev/v1/product-min-details').then((res) => res.json());
   return posts.map((post) => ({ 
@@ -9,12 +10,6 @@ export async function generateStaticParams() {
   }));
 }
 
-// Función para reemplazar los marcadores de posición en el HTML
-function replacePlaceholders(htmlString, data) { 
-  return htmlString.replace(/{{(.*?)}}/g, (_, key) => {
-    return data[key.trim()] || ''; // Reemplaza los marcadores de posición con los valores del objeto de datos
-  });
-}
 
 // Componente para la página del producto
 export default async function Page({ params }) {
@@ -27,10 +22,19 @@ export default async function Page({ params }) {
   
   // Extraer el código HTML desde la respuesta JSON
   const htmlTemplate = productData.data[0].html_code;
-  
+   
+  function replacePlaceholders(htmlString, data) { 
+    return htmlString.replace(/{{(.*?)}}/g, (_, key) => {
+      return data[key.trim()] || ''; // Reemplaza los marcadores de posición con los valores del objeto de datos
+    });
+  }
+
+    const [emblaRef] = useEmblaCarousel()  
+
   console.log(htmlTemplate); // Verificar el contenido del HTML
   // Reemplaza los marcadores de posición con los valores del producto
   const htmlContent = replacePlaceholders(htmlTemplate, blogData);
+
   
   return (
 <div class="bg-gray-100 dark:bg-gray-800 py-8">
@@ -38,29 +42,18 @@ export default async function Page({ params }) {
         <div class="flex flex-col md:flex-row -mx-4">
             <div class="md:flex-1 px-4">
                 <div class="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
-                <div class="embla">
-  <div class="embla__container">
-    <div class="embla__slide">Slide 1</div>
-    <div class="embla__slide">Slide 2</div>
-    <div class="embla__slide">Slide 3</div>
-  </div>
-</div>                </div>
+                <div className="embla" ref={emblaRef}>
+      <div className="embla__container">
+        <div className="embla__slide">Slide 1</div>
+        <div className="embla__slide">Slide 2</div>
+        <div className="embla__slide">Slide 3</div>
+      </div>
+    </div>         </div>
                 <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
             </div>
         </div>
     </div>
-    <Script id="embla-init" strategy="beforeInteractive">
-          {`
-            document.addEventListener('DOMContentLoaded', function () {
-              const emblaNode = document.querySelector('.embla');
-              if (emblaNode) {
-                const options = { loop: false };
-                const emblaApi = EmblaCarousel(emblaNode, options);
-                console.log(emblaApi.slideNodes()); // Access API
-              }
-            });
-          `}
-        </Script>
+
 </div>
   );
 }
