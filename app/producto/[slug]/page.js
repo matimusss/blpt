@@ -49,8 +49,8 @@ export default async function Page({ params }) {
             </div>
         </div>
     </div>
-    
-    {`
+    <Script id="embla-init" strategy="beforeInteractive">
+          {`
             document.addEventListener('DOMContentLoaded', function () {
               const emblaNode = document.querySelector('.embla');
               if (emblaNode) {
@@ -60,6 +60,7 @@ export default async function Page({ params }) {
               }
             });
           `}
+        </Script>
 </div>
   );
 }
