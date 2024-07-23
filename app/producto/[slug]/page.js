@@ -37,21 +37,24 @@ export default async function Page({ params }) {
 <div class="bg-gray-100 dark:bg-gray-800 py-8">
 
 <Script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js" strategy="beforeInteractive" />
-    <Script src="/carousel.js" />
+<Script src="/carousel.js" />
+
+
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row -mx-4">
             <div class="md:flex-1 px-4">
+
+
             <div class="embla">
   <div class="embla__container">
     <div class="embla__slide">Slide 1</div>
-    <div class="embla__slide">Slide 2</div>
-    <div class="embla__slide">Slide 3</div>
   </div>
+  <div class="embla__container">
+    <div class="embla__slide">Slide 1</div>
+
 </div>
 
-                <div class="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
-        
-        </div>
+ 
                 <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
             </div>
         </div>

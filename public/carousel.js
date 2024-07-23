@@ -10,7 +10,7 @@
     } else {
       console.error('Embla node not found');
     }
-  }, 1000); // 1000ms delay, adjust as needed
+  }, 10); // 1000ms delay, adjust as needed
 
   
 
