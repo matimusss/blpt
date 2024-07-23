@@ -29,7 +29,6 @@ export default async function Page({ params }) {
     });
   }
 
-    const [emblaRef] = useEmblaCarousel()  
 
   console.log(htmlTemplate); // Verificar el contenido del HTML
   // Reemplaza los marcadores de posición con los valores del producto
