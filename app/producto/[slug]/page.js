@@ -1,6 +1,19 @@
 import React from 'react';
-import Carousel from './carousel'
+import useEmblaCarousel from 'embla-carousel-react'
 
+export function Carousel() {
+  const [emblaRef] = useEmblaCarousel()
+
+  return (
+    <div className="embla" ref={emblaRef}>
+      <div className="embla__container">
+        <div className="embla__slide">Slide 1</div>
+        <div className="embla__slide">Slide 2</div>
+        <div className="embla__slide">Slide 3</div>
+      </div>
+    </div>
+  )
+}
 // Función para obtener los parámetros estáticos
 export async function generateStaticParams() {
   const posts = await fetch('https://sonicjs-cf2.pages.dev/v1/product-min-details').then((res) => res.json());
@@ -38,7 +51,8 @@ export default async function Page({ params }) {
         <div class="flex flex-col md:flex-row -mx-4">
             <div class="md:flex-1 px-4">
                 <div class="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
-                <Carousel />
+<Carousel />
+                    <img class="w-full h-full object-cover" src="https://cdn.pixabay.com/photo/2020/05/22/17/53/mockup-5206355_960_720.jpg" alt="Product Image" />
                 </div>
                 <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
             </div>
