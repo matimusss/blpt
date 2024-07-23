@@ -2,7 +2,6 @@ import React from 'react';
 import EmblaCarousel from 'embla-carousel'
 
 
-console.log(emblaApi.slideNodes()) // Access API
 // Función para obtener los parámetros estáticos
 export async function generateStaticParams() {
   const posts = await fetch('https://sonicjs-cf2.pages.dev/v1/product-min-details').then((res) => res.json());
