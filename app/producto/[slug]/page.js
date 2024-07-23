@@ -34,34 +34,18 @@ export default async function Page({ params }) {
   
   return ( 
 <div>
-<section class="embla">
-      <div class="embla__viewport">
-        <div class="embla__container">
-          <div class="embla__slide">
-            <div class="embla__slide__number">1</div>
-          </div>
-          <div class="embla__slide">
-            <div class="embla__slide__number">2</div>
-          </div>
-          <div class="embla__slide">
-            <div class="embla__slide__number">3</div>
-          </div>
-          <div class="embla__slide">
-            <div class="embla__slide__number">4</div>
-          </div>
-          <div class="embla__slide">
-            <div class="embla__slide__number">5</div>
-          </div>
-        </div>
-      </div>
-    </section>
-<div class="bg-gray-100 dark:bg-gray-800 py-8">
+
+<Script src="/carousel.js" />
+<Script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js" strategy="beforeInteractive" />
+
+<swiper-container>
+  <swiper-slide>Slide 1</swiper-slide>
+  <swiper-slide>Slide 2</swiper-slide>
+  <swiper-slide>Slide 3</swiper-slide>
+</swiper-container>
 
 
 
-
-<Script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js" strategy="beforeInteractive" />
-    <Script src="/carousel.js" />
 
     
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
