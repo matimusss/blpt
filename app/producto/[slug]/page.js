@@ -8,7 +8,6 @@ export async function generateStaticParams() {
   }));
 }
 
-
 // Componente para la página del producto
 export default async function Page({ params }) {
   const slug = params.slug;
@@ -36,9 +35,11 @@ export default async function Page({ params }) {
   return ( 
 <div class="bg-gray-100 dark:bg-gray-800 py-8">
 
-<div class="embla">
-  <div class="embla__container">
-  <div class="embla__slide">
+
+<section class="embla">
+      <div class="embla__viewport">
+        <div class="embla__container">
+          <div class="embla__slide">
             <div class="embla__slide__number">1</div>
           </div>
           <div class="embla__slide">
@@ -53,10 +54,9 @@ export default async function Page({ params }) {
           <div class="embla__slide">
             <div class="embla__slide__number">5</div>
           </div>
-  </div>
-
-
-</div>
+        </div>
+      </div>
+    </section>
 
 <Script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js" strategy="beforeInteractive" />
     <Script src="/carousel.js" />
