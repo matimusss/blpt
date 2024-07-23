@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import useEmblaCarousel from 'embla-carousel-react'
 
 // Función para obtener los parámetros estáticos
