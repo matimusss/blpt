@@ -38,8 +38,21 @@ export default async function Page({ params }) {
 
 <div class="embla">
   <div class="embla__container">
-    <div class="embla__slide">Slide 1</div>
-    <div class="embla__slide">Slide 2</div>
+  <div class="embla__slide">
+            <div class="embla__slide__number">1</div>
+          </div>
+          <div class="embla__slide">
+            <div class="embla__slide__number">2</div>
+          </div>
+          <div class="embla__slide">
+            <div class="embla__slide__number">3</div>
+          </div>
+          <div class="embla__slide">
+            <div class="embla__slide__number">4</div>
+          </div>
+          <div class="embla__slide">
+            <div class="embla__slide__number">5</div>
+          </div>
   </div>
 
 
