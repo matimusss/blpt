@@ -1,5 +1,5 @@
 import React from "react";
-import Carousel from './carousel.js';
+import {Carousel} from './carousel.js';
 
 // Función para obtener los parámetros estáticos
 
