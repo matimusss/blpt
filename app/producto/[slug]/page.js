@@ -15,13 +15,13 @@ function replacePlaceholders(htmlString, data) {
     const trimmedKey = key.trim();
     if (trimmedKey === 'images_component') {
       return `
-    <div className="embla" ref={emblaRef}>
-      <div className="embla__container">
-        <div className="embla__slide">Slide 1</div>
-        <div className="embla__slide">Slide 2</div>
-        <div className="embla__slide">Slide 3</div>
-      </div>
-    </div>  `;
+    <div class="embla">
+  <div class="embla__container">
+    <div class="embla__slide">Slide 1</div>
+    <div class="embla__slide">Slide 2</div>
+    <div class="embla__slide">Slide 3</div>
+  </div>
+</div> `;
     } else {
       return data[trimmedKey] || ''; // Reemplaza otros marcadores de posición con los valores del objeto de datos
     }
