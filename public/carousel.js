@@ -1,5 +1,7 @@
-document.addEventListener("DOMContentLoaded", function() {
-  setTimeout(async function() {
+
+  
+  function choto() { 
+    setTimeout(async function() {
     const emblaNode = document.querySelector('.embla');
     if (emblaNode) {
       const options = { loop: false };
@@ -9,4 +11,8 @@ document.addEventListener("DOMContentLoaded", function() {
       console.error('Embla node not found');
     }
   }, 1000); // 1000ms delay, adjust as needed
-});
+
+  
+  };
+
+  choto();
