@@ -35,7 +35,6 @@ export default async function Page({ params }) {
   return ( 
 <div>
 
-<Script src="/carousel.js" />
 <Script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js" strategy="beforeInteractive" />
 
 <swiper-container>
@@ -59,7 +58,6 @@ export default async function Page({ params }) {
         </div>
     </div>
 
-</div>
 </div>
 
   );
