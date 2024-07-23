@@ -1,6 +1,5 @@
 import React from 'react';
-import useEmblaCarousel from 'embla-carousel-react'
-
+import Carousel from './carousel'
 
 // Función para obtener los parámetros estáticos
 export async function generateStaticParams() {
@@ -28,11 +27,7 @@ export default async function Page({ params }) {
   
   // Extraer el código HTML desde la respuesta JSON
   const htmlTemplate = productData.data[0].html_code;
-
   
-  const [emblaRef] = useEmblaCarousel()
-  
-
   console.log(htmlTemplate); // Verificar el contenido del HTML
   // Reemplaza los marcadores de posición con los valores del producto
   const htmlContent = replacePlaceholders(htmlTemplate, blogData);
@@ -43,19 +38,28 @@ export default async function Page({ params }) {
         <div class="flex flex-col md:flex-row -mx-4">
             <div class="md:flex-1 px-4">
                 <div class="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
-                <div className="embla" ref={emblaRef}>
-  <div className="embla__container">
-    <div className="embla__slide">Slide 1</div>
-    <div className="embla__slide">Slide 2</div>
-    <div className="embla__slide">Slide 3</div>
+                <div class="embla">
+  <div class="embla__container">
+    <div class="embla__slide">Slide 1</div>
+    <div class="embla__slide">Slide 2</div>
+    <div class="embla__slide">Slide 3</div>
   </div>
-</div>
-                    <img class="w-full h-full object-cover" src="https://cdn.pixabay.com/photo/2020/05/22/17/53/mockup-5206355_960_720.jpg" alt="Product Image" />
-                </div>
+</div>                </div>
                 <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
             </div>
         </div>
     </div>
+    
+    {`
+            document.addEventListener('DOMContentLoaded', function () {
+              const emblaNode = document.querySelector('.embla');
+              if (emblaNode) {
+                const options = { loop: false };
+                const emblaApi = EmblaCarousel(emblaNode, options);
+                console.log(emblaApi.slideNodes()); // Access API
+              }
+            });
+          `}
 </div>
   );
 }
