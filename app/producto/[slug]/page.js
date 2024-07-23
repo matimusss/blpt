@@ -1,9 +1,6 @@
 import React from 'react';
 import EmblaCarousel from 'embla-carousel'
 
-const emblaNode = document.querySelector('.embla')
-const options = { loop: false }
-const emblaApi = EmblaCarousel(emblaNode, options)
 
 console.log(emblaApi.slideNodes()) // Access API
 // Función para obtener los parámetros estáticos
@@ -14,17 +11,12 @@ export async function generateStaticParams() {
   }));
 }
 
-
-
 // Función para reemplazar los marcadores de posición en el HTML
 function replacePlaceholders(htmlString, data) { 
   return htmlString.replace(/{{(.*?)}}/g, (_, key) => {
     return data[key.trim()] || ''; // Reemplaza los marcadores de posición con los valores del objeto de datos
   });
 }
-
-
-
 
 // Componente para la página del producto
 export default async function Page({ params }) {
@@ -39,13 +31,10 @@ export default async function Page({ params }) {
   const htmlTemplate = productData.data[0].html_code;
   
   console.log(htmlTemplate); // Verificar el contenido del HTML
-
   // Reemplaza los marcadores de posición con los valores del producto
   const htmlContent = replacePlaceholders(htmlTemplate, blogData);
-
   
   return (
-
 <div class="bg-gray-100 dark:bg-gray-800 py-8">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row -mx-4">
@@ -53,26 +42,10 @@ export default async function Page({ params }) {
                 <div class="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
                     <img class="w-full h-full object-cover" src="https://cdn.pixabay.com/photo/2020/05/22/17/53/mockup-5206355_960_720.jpg" alt="Product Image" />
                 </div>
-
                 <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
             </div>
-        
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
   );
 }
