@@ -1,21 +1,11 @@
 import React from 'react';
-import EmblaCarousel from 'embla-carousel-react';
+import EmblaCarousel from 'embla-carousel'
 
-// Componente EmblaCarousel
-function EmblaCarouselComponent() {
-  const [emblaRef] = useEmblaCarousel();
+const emblaNode = document.querySelector('.embla')
+const options = { loop: false }
+const emblaApi = EmblaCarousel(emblaNode, options)
 
-  return (
-    <div className="embla" ref={emblaRef}>
-      <div className="embla__container">
-        <div className="embla__slide">Slide 1</div>
-        <div className="embla__slide">Slide 2</div>
-        <div className="embla__slide">Slide 3</div>
-      </div>
-    </div>
-  );
-}
-
+console.log(emblaApi.slideNodes()) // Access API
 // Función para obtener los parámetros estáticos
 export async function generateStaticParams() {
   const posts = await fetch('https://sonicjs-cf2.pages.dev/v1/product-min-details').then((res) => res.json());
@@ -24,16 +14,17 @@ export async function generateStaticParams() {
   }));
 }
 
+
+
 // Función para reemplazar los marcadores de posición en el HTML
 function replacePlaceholders(htmlString, data) { 
   return htmlString.replace(/{{(.*?)}}/g, (_, key) => {
-    const trimmedKey = key.trim();
-    if (trimmedKey === 'images_component') {
-      return `<EmblaCarouselComponent />`;
-    }
-    return data[trimmedKey] || ''; // Reemplaza otros marcadores de posición con los valores del objeto de datos
+    return data[key.trim()] || ''; // Reemplaza los marcadores de posición con los valores del objeto de datos
   });
 }
+
+
+
 
 // Componente para la página del producto
 export default async function Page({ params }) {
@@ -52,12 +43,36 @@ export default async function Page({ params }) {
   // Reemplaza los marcadores de posición con los valores del producto
   const htmlContent = replacePlaceholders(htmlTemplate, blogData);
 
-  // Convertir el HTML en JSX
-  const jsxContent = htmlContent.replace(/<EmblaCarouselComponent \/>/g, `<EmblaCarouselComponent />`);
   
   return (
-    <div>
-      {jsxContent}
+
+<div class="bg-gray-100 dark:bg-gray-800 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row -mx-4">
+            <div class="md:flex-1 px-4">
+                <div class="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
+                    <img class="w-full h-full object-cover" src="https://cdn.pixabay.com/photo/2020/05/22/17/53/mockup-5206355_960_720.jpg" alt="Product Image" />
+                </div>
+
+                <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
+            </div>
+        
+        </div>
     </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
   );
 }
