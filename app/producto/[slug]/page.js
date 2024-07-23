@@ -34,11 +34,11 @@ export default async function Page({ params }) {
   const htmlContent = replacePlaceholders(htmlTemplate, blogData);
 
   
-  return (
-    <Script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js" strategy="beforeInteractive" />
-    <Script src="/carousel.js" type="text/javascript"> </Script> 
+  return ( 
 <div class="bg-gray-100 dark:bg-gray-800 py-8">
 
+<Script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js" strategy="beforeInteractive" />
+    <Script src="/carousel.js" type="text/javascript" />
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row -mx-4">
             <div class="md:flex-1 px-4">
