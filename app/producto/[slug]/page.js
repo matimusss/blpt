@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 
@@ -36,6 +37,7 @@ function replacePlaceholders(htmlString, data) {
 
 // Componente para la página del producto
 export default function Page({ params }) {
+  "use client"
   const slug = params.slug;
 
   useEffect(() => {
