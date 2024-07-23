@@ -21,13 +21,7 @@ function replacePlaceholders(htmlString, data) {
     <div class="embla__slide">Slide 2</div>
     <div class="embla__slide">Slide 3</div>
   </div>
-</div>  <script type="text/javascript">
-  const emblaNode = document.querySelector('.embla')
-  const options = { loop: false }
-  const emblaApi = EmblaCarousel(emblaNode, options)
-
-  console.log(emblaApi.slideNodes()) // Access API
-</script>`;
+</div>  `;
     } else {
       return data[trimmedKey] || ''; // Reemplaza otros marcadores de posición con los valores del objeto de datos
     }

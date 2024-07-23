@@ -19,11 +19,12 @@ export default  async function Layout({ children }) {
      return (
     <html lang="en">
     <head>
-    <Script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js" />
+    <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
 
     <Script src="https://cdn.tailwindcss.com" strategy="beforeInteractive" /> 
     </head>
     <body >
+      
 <div>  
 <div dangerouslySetInnerHTML={{ __html: headerData.data[0].html_code }} />
 </div>   
