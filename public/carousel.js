@@ -1,6 +1,6 @@
 
   
-  function choto() { 
+ 
     setTimeout(async function() {
     const emblaNode = document.querySelector('.embla');
     if (emblaNode) {
@@ -13,6 +13,5 @@
   }, 1000); // 1000ms delay, adjust as needed
 
   
-  };
 
-  choto();
+
