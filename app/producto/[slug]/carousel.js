@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useState, useRef } from "react";
 import useEmblaCarousel from 'embla-carousel-react'
 
 export function Carousel() {

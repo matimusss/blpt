@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import useEmblaCarousel from 'embla-carousel-react'
+import Carousel from './carousel.js';
 
 // Función para obtener los parámetros estáticos
 
@@ -42,13 +42,7 @@ export default async function Page({ params }) {
         <div class="flex flex-col md:flex-row -mx-4">
             <div class="md:flex-1 px-4">
                 <div class="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
-                <div className="embla" ref={emblaRef}>
-      <div className="embla__container">
-        <div className="embla__slide">Slide 1</div>
-        <div className="embla__slide">Slide 2</div>
-        <div className="embla__slide">Slide 3</div>
-      </div>
-    </div>         </div>
+            <Carousel />         </div>
                 <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
             </div>
         </div>
