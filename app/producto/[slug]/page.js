@@ -1,5 +1,5 @@
 import React from "react";
-
+import Script from 'next/script'
 // Función para obtener los parámetros estáticos
 
 export async function generateStaticParams() {
@@ -35,6 +35,8 @@ export default async function Page({ params }) {
 
   
   return (
+    <Script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js" strategy="beforeInteractive" />
+    <Script src="/carousel.js" type="text/javascript"> </Script> 
 <div class="bg-gray-100 dark:bg-gray-800 py-8">
 
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

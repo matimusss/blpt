@@ -1,12 +1,8 @@
 
-import Script from 'next/script'
-
 export default  async function Layout({ children }) {    
 
- 
   const headerRes = await fetch(`https://sonicjs-cf2.pages.dev/v1/nc/assets?filters[name][$eq]=header`);
-  
-  const footerRes = await fetch(`https://sonicjs-cf2.pages.dev/v1/nc/assets?filters[name][$eq]=footer`);
+    const footerRes = await fetch(`https://sonicjs-cf2.pages.dev/v1/nc/assets?filters[name][$eq]=footer`);
   
 
    
@@ -20,7 +16,6 @@ export default  async function Layout({ children }) {
     <html lang="en">
     <head>
     <Script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js" strategy="beforeInteractive" />
- <script src="/carousel.js" type="text/javascript"> </script> 
    
     <Script src="https://cdn.tailwindcss.com" strategy="beforeInteractive" /> 
     </head>
