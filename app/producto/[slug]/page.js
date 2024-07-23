@@ -33,9 +33,7 @@ export default async function Page({ params }) {
 
   
   return ( 
-<div class="bg-gray-100 dark:bg-gray-800 py-8">
-
-
+<div>
 <section class="embla">
       <div class="embla__viewport">
         <div class="embla__container">
@@ -57,6 +55,10 @@ export default async function Page({ params }) {
         </div>
       </div>
     </section>
+<div class="bg-gray-100 dark:bg-gray-800 py-8">
+
+
+
 
 <Script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js" strategy="beforeInteractive" />
     <Script src="/carousel.js" />
@@ -74,5 +76,7 @@ export default async function Page({ params }) {
     </div>
 
 </div>
+</div>
+
   );
 }
