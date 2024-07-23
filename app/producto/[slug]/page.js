@@ -10,6 +10,15 @@ export async function generateStaticParams() {
 
 // Componente para la página del producto
 export default async function Page({ params }) {
+
+  const swiperContent = `
+  <swiper-container>
+    <swiper-slide>Slide 1</swiper-slide>
+    <swiper-slide>Slide 2</swiper-slide>
+    <swiper-slide>Slide 3</swiper-slide>
+  </swiper-container>
+`;
+
   const slug = params.slug;
   const blogData = await fetch(`https://sonicjs-cf2.pages.dev/v1/getProductBySlug/${slug}`).then((res) => res.json());
 
@@ -22,9 +31,14 @@ export default async function Page({ params }) {
    
   function replacePlaceholders(htmlString, data) { 
     return htmlString.replace(/{{(.*?)}}/g, (_, key) => {
-      return data[key.trim()] || ''; // Reemplaza los marcadores de posición con los valores del objeto de datos
+      const trimmedKey = key.trim();
+      if (trimmedKey === "images_component") {
+        return swiperContent;
+      }
+      return data[trimmedKey] || ''; // Reemplaza los marcadores de posición con los valores del objeto de datos
     });
   }
+
 
 
   console.log(htmlTemplate); // Verificar el contenido del HTML
@@ -35,18 +49,14 @@ export default async function Page({ params }) {
   return ( 
 <div>
 
-<Script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js" strategy="beforeInteractive" />
 
+<Script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js" strategy="beforeInteractive" />
 <swiper-container>
   <swiper-slide>Slide 1</swiper-slide>
   <swiper-slide>Slide 2</swiper-slide>
   <swiper-slide>Slide 3</swiper-slide>
-</swiper-container>
+</swiper-container> 
 
-
-
-
-    
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row -mx-4">
             <div class="md:flex-1 px-4">
